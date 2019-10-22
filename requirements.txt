@@ -1,0 +1,5 @@
+XlsxWriter>=1.1.8
+googlemaps>=3.0.2
+setuptools>=40.8.0
+selenium>=3.141.0
+beautifulsoup4>=4.8.1
