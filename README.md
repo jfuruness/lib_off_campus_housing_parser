@@ -1,5 +1,5 @@
 # lib\_off\_campus\_housing\_parser
-This package contains the functionality to record all uconn off campus housing info into an excel spreadsheet, sorted and in order by your preferences.
+This package contains the functionality to record all uconn off campus housing info into an excel spreadsheet, sorted and in order by your preferences. It is optimized to consider the total cost of the apartment. This includes electricity, water, internet, heat, drive time, walk time, parking passes, laundromatt, gas cost, etc. It then opens all options filtered and sorted to be removed manually, and stores what is left into an excel file
 
 * [lib\_off\_campus\_housing\_parser](#lib\_off\_campus\_housing\_parser)
 * [Description](#package-description)
@@ -16,7 +16,7 @@ This package contains the functionality to record all uconn off campus housing i
 ## Package Description
 * [lib\_off\_campus\_housing\_parser](#lib\_off\_campus\_housing\_parser)
 
-This package contains the functionality to record all uconn off campus housing info into an excel spreadsheet, sorted and in order by your preferences. This is done through a series of steps.
+It is optimized to consider the total cost of the apartment. This includes electricity, water, internet, heat, drive time, walk time, parking passes, laundromatt, gas cost, etc. It then opens all options filtered and sorted to be removed manually, and stores what is left into an excel file. This is done through a series of steps.
 
 1. A Selenium Web Browser instance is created
 2. You are logged into the uconn off campus housing website (Note: you can be a guest and still use this with a temporary login)
