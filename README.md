@@ -108,7 +108,7 @@ run in a terminal: ```off_campus_housing```
 
 This will start the application with default arguments.
 
-### Installation instructions
+### Installation
 * [lib\_off\_campus\_housing\_parser](#lib\_off\_campus\_housing\_parser)
 
 First install the chrome driver (google this)
