@@ -41,14 +41,17 @@ class Off_Campus_Parser:
         self.browser = webstuff(executable_path=executable_path)
         self.url = "https://offcampushousing.uconn.edu"
         self.listings = []
-        self.logger = Logger().logger
+        try:
+            self.logger = Logger().logger
+        except PermissionError:
+            raise Exception("Make the log files in /var/log/lib_off_campus_housing_parser and make the directory have permissions to create log files in it")
 
     def parse_houses(self,
                      drive_time_max=20,
                      max_rent=1500,
                      netid="jmf14015",
                      pets=False,
-                     test=False,
+                     test=True,
                      excel_path="/tmp/off_campus.xlsx"):
         """Parses all houses.
 
@@ -164,11 +167,19 @@ class Off_Campus_Parser:
     def _open_all_listings(self):
         """Opens all windows of listings"""
 
-        for listing in self.listings:
+        for i, listing in enumerate(self.listings):
             self.browser.execute_script("window.open('');")
-            self._sleep(self.browser.switch_to_window(
+            self._sleep(self.browser.switch_to.window(
                 self.browser.window_handles[-1]))
             self._load(listing.url)
+            if i == 0:
+                # Gets rid of the other windows
+                self.browser.switch_to.window(
+                self.browser.window_handles[0])
+                self.browser.close()
+                self._sleep(self.browser.switch_to.window(
+                    self.browser.window_handles[-1]))
+
 
     def get_listing_rows(self):
         """Returns all listing rows that are open"""

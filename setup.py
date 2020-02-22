@@ -14,7 +14,7 @@ __status__ = "Development"
 
 setup(
     name="lib_off_campus_housing_parser",
-    version="0.1.0",
+    version="0.1.1",
     url="https://github.com/jfuruness/lib_off_campus_housing_parser.git",
     download_url='https://github.com/jfuruness/lib_off_campus_housing_parser.git',
     keywords=['Furuness', 'UConn', 'University of Connecticut',

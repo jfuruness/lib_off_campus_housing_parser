@@ -1,4 +1,21 @@
 # lib\_off\_campus\_housing\_parser
+
+BEFORE YOU CONTINUE:
+I've come back to edit this package after a while and it needs a refactor for sure. Many parameters have default args that cannot be changed. Unit testing is needed - for example, if the parameters result in zero listings the program will I believe crash. This didn't break for my use case, and since no one would ever use it I never bothered fixing it. The other thing that this README doesn't explain very well is the algorithm I used to determine the value of a location. NOTE also that the algorithm only applies for one person. In practice if there are two people, the cost actually goes up by 1.5X or more unless it's an apartment complex.
+
+Algorithm: drive cost = drive time * 30mph * 23 mpg * gas price + drive time * wages * (1-wage tax) + parking_pass_cost/12
+           walk cost = walk_time * wages * (1-wage_tax)
+           cost of utilities not included (internet, electric, water, laundromatt, heat, etc)
+           total cost = min(drive_cost, walk_cost) + cost_of_utilities + listing price
+
+I've also wanted to add the security deposit * .7 for the amount of interest you could have made on that deposit to the total cost but never got around to it. This package also really needs tqdm.
+
+Please star repo if you like it lol
+
+
+
+
+
 This package contains the functionality to record all uconn off campus housing info into an excel spreadsheet, sorted and in order by your preferences. It is optimized to consider the total cost of the apartment. This includes electricity, water, internet, heat, drive time, walk time, parking passes, laundromatt, gas cost, etc. It then opens all options filtered and sorted to be removed manually, and stores what is left into an excel file
 
 * [lib\_off\_campus\_housing\_parser](#lib\_off\_campus\_housing\_parser)
@@ -160,6 +177,7 @@ Note: I currently have not written any tests, since I have tried the program and
 
 ## History
    * [lib\_youtube\_cd\_burner](#lib\_youtube\_cd\_burner)
+   * 0.1.1 - Bug fixes for sorting func, utilities made negative, wrong windows closed
    * 0.1.0 - Initial commit
 
 ## Credits
