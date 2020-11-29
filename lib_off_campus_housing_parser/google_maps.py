@@ -45,7 +45,7 @@ class GMaps:
         except googlemaps.exceptions.ApiError as e:
             self.logger.error(e)
             # If we cannot find it, return a very high number
-            return 10000, 10000
+            return 0, 0
 
         # Return the minutes for each rounded to the nearest whole number
         return (int(drive_result[0]['legs'][0]['duration']['value'])//60,

@@ -138,7 +138,7 @@ class Logger:
         log_dir = args.get("log_dir")
         if log_dir is None:
             log_dir = "/var/log/lib_off_campus_housing_parser"
-        self._make_dir(log_dir)
+        #self._make_dir(log_dir)
 
         prepend = args.get("prepend")
         if prepend is None:

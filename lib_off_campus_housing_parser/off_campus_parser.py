@@ -14,6 +14,7 @@ Once you hit enter all listings are saved in an excel doc"""
 import os
 import time
 from bs4 import BeautifulSoup
+from selenium import webdriver
 from selenium.webdriver import Chrome as webstuff
 from selenium.common.exceptions import ElementNotVisibleException
 from selenium.common.exceptions import ElementNotInteractableException
@@ -38,7 +39,10 @@ class Off_Campus_Parser:
 
         # Needs these environment vars to run properly
         self._check_for_environ_vars()
-        self.browser = webstuff(executable_path=executable_path)
+        options = webdriver.ChromeOptions();
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--no-sandbox")
+        self.browser = webstuff(options=options, executable_path=executable_path)
         self.url = "https://offcampushousing.uconn.edu"
         self.listings = []
         try:
@@ -72,7 +76,7 @@ class Off_Campus_Parser:
         while pages_left:
             # Extends listings
             pages_left = self._parse_page()
-            if test:
+            if test or True:
                 break
         # Gets all listing info for the pages parsed
         self._get_listing_info()
